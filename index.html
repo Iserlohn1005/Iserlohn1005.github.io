@@ -509,11 +509,15 @@
 <p>###1.1 设置Git Bash</p>
 <p>右击gitbash 的图标，选择properties，然后把–cd-to-home删掉，把start in改成我们自己设置的文件夹E:\Git Bash，重新打开后就好了</p>
 <p>​    </p>
+<h3 id="1-1-设置Git-Bash"><a href="#1-1-设置Git-Bash" class="headerlink" title="1.1 设置Git Bash"></a>1.1 设置Git Bash</h3><p>右击gitbash 的图标，选择properties，然后把–cd-to-home删掉，把start in改成我们自己设置的文件夹E:\Git Bash，重新打开后就好了</p>
 <h2 id="2-安装Blog"><a href="#2-安装Blog" class="headerlink" title="2. 安装Blog"></a>2. 安装Blog</h2><p>###2.1 安装Node.js</p>
 <p>下载适合自己的版本，然后安装即可~</p>
 <p>###2.2 安装Git</p>
 <p>选择 Use Git from Git Bash only, Checkout Windows-style, commit Unix-style line endings</p>
-<h3 id="啊中文情况下的，试试"><a href="#啊中文情况下的，试试" class="headerlink" title="啊中文情况下的，试试"></a>啊中文情况下的，试试</h3><h3 id="啊英文情况下的，试试"><a href="#啊英文情况下的，试试" class="headerlink" title="啊英文情况下的，试试"></a>啊英文情况下的，试试</h3><h3 id="2-3-安装Hexo"><a href="#2-3-安装Hexo" class="headerlink" title="2.3 安装Hexo"></a>2.3 安装Hexo</h3><p>在桌面右击选择Git Bash here，输入命令：</p>
+<h3 id="2-1-安装Node-js"><a href="#2-1-安装Node-js" class="headerlink" title="2.1 安装Node.js"></a>2.1 安装Node.js</h3><p>下载合适的版本，安装</p>
+<p>###2.2 安装Git</p>
+<p>选择 Use Git from Git Bash only, Checkout Windows-style, commit Unix-style line endings</p>
+<h3 id="2-3-安装Hexo"><a href="#2-3-安装Hexo" class="headerlink" title="2.3 安装Hexo"></a>2.3 安装Hexo</h3><p>在桌面右击选择Git Bash here，输入命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">npm install hexo --save</span><br><span class="line"><span class="comment">#如果命令无法运行，可以尝试更换taobao的npm源</span></span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 <p>然后创建一个文件夹，比如E:\Blog\Hexo，在Hexo中右击选Git Bash here</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
@@ -577,6 +581,7 @@
 <h4 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h4><p>hexo g的时候出现了YAMLException: duplicated mapping key at line 825, column 1:的问题，是因为这个主题配置文件里已经有了canvas_nest: 这个选项，再加一行就会冲突。删掉其中的一个即可</p>
 <h3 id="6-7-改变新建文件的模板"><a href="#6-7-改变新建文件的模板" class="headerlink" title="6.7 改变新建文件的模板"></a>6.7 改变新建文件的模板</h3><p>Hexo/scaffolds/post.md文件，加上categories这一行</p>
 <h2 id="7-小问题"><a href="#7-小问题" class="headerlink" title="7. 小问题"></a>7. 小问题</h2><h3 id="7-1-有的显示的是-，而不是格式"><a href="#7-1-有的显示的是-，而不是格式" class="headerlink" title="7.1 有的显示的是#，而不是格式"></a>7.1 有的显示的是#，而不是格式</h3><p>猜测：中英文符号？</p>
+<h3 id="中文情况下"><a href="#中文情况下" class="headerlink" title="中文情况下"></a>中文情况下</h3><h3 id="英文情况下"><a href="#英文情况下" class="headerlink" title="英文情况下"></a>英文情况下</h3><p>都行… _(:3 」∠)_</p>
 
           
         
