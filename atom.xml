@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-27T03:56:11.923Z</updated>
+  <updated>2018-05-27T05:28:33.845Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>时间线</title>
-    <link href="http://yoursite.com/2018/05/25/%E6%97%B6%E9%97%B4%E7%BA%BF/"/>
-    <id>http://yoursite.com/2018/05/25/时间线/</id>
-    <published>2018-05-25T22:55:18.000Z</published>
-    <updated>2018-05-27T03:56:11.923Z</updated>
+    <link href="http://yoursite.com/2118/05/25/%E6%97%B6%E9%97%B4%E7%BA%BF/"/>
+    <id>http://yoursite.com/2118/05/25/时间线/</id>
+    <published>2118-05-25T22:55:18.000Z</published>
+    <updated>2018-05-27T05:28:33.845Z</updated>
     
     <content type="html"><![CDATA[<h1 id="2018"><a href="#2018" class="headerlink" title="2018"></a>2018</h1><h2 id="2018-05-25"><a href="#2018-05-25" class="headerlink" title="2018.05.25"></a>2018.05.25</h2><p>用GitHub搭了一个<a href="https://miaomiao1005.github.io/2018/05/25/Build%20Your%20Own%20Blog%20with%20Github%20Pages/" target="_blank" rel="noopener">博客</a></p>]]></content>
     
