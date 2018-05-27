@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Miaomiao">
 <meta property="og:description" content="[TOC] 用GitHub搭博客按照Hexo+GitPage搭建个人博客一步步来，期间遇到了很多小问题~ ​          1. 换个git bash的名字以前装过git，用的是老的用户名和密码，这次想换成新的。问题是重装了几次之后，一打开git bash还是老的用户名和密码 在网上搜了搜，有人说在control panel - user accounts - manage windows c">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-27T04:38:23.750Z">
+<meta property="og:updated_time" content="2018-05-27T04:41:55.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用Hexo &amp; Github Pages来搭一个自己的博客~">
 <meta name="twitter:description" content="[TOC] 用GitHub搭博客按照Hexo+GitPage搭建个人博客一步步来，期间遇到了很多小问题~ ​          1. 换个git bash的名字以前装过git，用的是老的用户名和密码，这次想换成新的。问题是重装了几次之后，一打开git bash还是老的用户名和密码 在网上搜了搜，有人说在control panel - user accounts - manage windows c">
@@ -369,6 +369,7 @@
 <p>###2.2 安装Git</p>
 <p>选择 Use Git from Git Bash only, Checkout Windows-style, commit Unix-style line endings</p>
 <p>###2.2 安装Git</p>
+<p>###2.2 安装Git</p>
 <h3 id="2-3-安装Hexo"><a href="#2-3-安装Hexo" class="headerlink" title="2.3 安装Hexo"></a>2.3 安装Hexo</h3><p>在桌面右击选择Git Bash here，输入命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">npm install hexo --save</span><br><span class="line"><span class="comment">#如果命令无法运行，可以尝试更换taobao的npm源</span></span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 <p>然后创建一个文件夹，比如E:\Blog\Hexo，在Hexo中右击选Git Bash here</p>
@@ -432,10 +433,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">color ：线条颜色, 默认: &apos;0,0,0&apos;；三个数字分别为(R,G,B)</span><br><span class="line">opacity: 线条透明度（0~1）, 默认: 0.5</span><br><span class="line">count: 线条的总数量, 默认: 150</span><br><span class="line">zIndex: 背景的z-index属性，css属性用于控制所在层的位置, 默认: -1</span><br></pre></td></tr></table></figure>
 <h4 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h4><p>hexo g的时候出现了YAMLException: duplicated mapping key at line 825, column 1:的问题，是因为这个主题配置文件里已经有了canvas_nest: 这个选项，再加一行就会冲突。删掉其中的一个即可</p>
 <h3 id="6-7-改变新建文件的模板"><a href="#6-7-改变新建文件的模板" class="headerlink" title="6.7 改变新建文件的模板"></a>6.7 改变新建文件的模板</h3><p>Hexo/scaffolds/post.md文件，加上categories这一行</p>
-<h2 id="7-小问题"><a href="#7-小问题" class="headerlink" title="7. 小问题"></a>7. 小问题</h2><h3 id="7-1-有的显示的是-，而不是格式"><a href="#7-1-有的显示的是-，而不是格式" class="headerlink" title="7.1 有的显示的是#，而不是格式"></a>7.1 有的显示的是#，而不是格式</h3><p>猜测：中英文符号？</p>
+<h2 id="7-小问题"><a href="#7-小问题" class="headerlink" title="7. 小问题"></a>7. 小问题</h2><h3 id="7-1-有的显示的是-，而不是格式"><a href="#7-1-有的显示的是-，而不是格式" class="headerlink" title="7.1 有的显示的是#，而不是格式"></a>7.1 有的显示的是#，而不是格式</h3><p>猜测1：中英文符号？</p>
 <h3 id="中文情况下"><a href="#中文情况下" class="headerlink" title="中文情况下"></a>中文情况下</h3><h3 id="英文情况下"><a href="#英文情况下" class="headerlink" title="英文情况下"></a>英文情况下</h3><p>都行… _(:3 」∠)_</p>
-<p>似乎如果上一行已经是标题，然后回车之后再打三个井号，就不会被认为是标题…？</p>
-<h3 id="上一行是正常的"><a href="#上一行是正常的" class="headerlink" title="上一行是正常的"></a>上一行是正常的</h3><h3 id="直接回车后井号"><a href="#直接回车后井号" class="headerlink" title="直接回车后井号"></a>直接回车后井号</h3>
+<p>​    </p>
+<p>猜测2：似乎如果上一行已经是标题，然后回车之后再打三个井号，就不会被认为是标题…？</p>
+<h3 id="上一行是正常的"><a href="#上一行是正常的" class="headerlink" title="上一行是正常的"></a>上一行是正常的</h3><h3 id="直接回车后井号"><a href="#直接回车后井号" class="headerlink" title="直接回车后井号"></a>直接回车后井号</h3><p>还是都可以呀…啊疯掉了…</p>
+
       
     </div>
     
