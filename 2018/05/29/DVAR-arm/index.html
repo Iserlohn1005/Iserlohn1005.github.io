@@ -89,10 +89,17 @@
 <meta property="og:site_name" content="Miaomiao">
 <meta property="og:description" content="[TOC] 这篇写的是对DVAR: 路由器靶场的研究。 1. 准备一开始能打开虚拟机说的网址，但是后来就打不开了。摸不着头脑… 查看了很多资料，众说纷纭：  要ifconfig和在主机上ipconfig查看双方地址 虚拟机要用户名和密码才能输入命令，找了很久终于在另一个页面上找到了密码，然后发现似乎只要输入root就行了… 好，终于进去了，但config了很久，还是不行。 ​      NAT,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-31T18:44:27.387Z">
+<meta property="og:image" content="https://github.com/Miaomiao1005/Image/raw/master/DVAR/1.png">
+<meta property="og:image" content="https://azeria-labs.com/wp-content/uploads/2017/03/gif-assembly-to-machine-code.gif">
+<meta property="og:image" content="https://azeria-labs.com/wp-content/uploads/2017/03/data-types-1.png">
+<meta property="og:image" content="https://azeria-labs.com/wp-content/uploads/2017/03/cpsr.png">
+<meta property="og:image" content="https://github.com/Miaomiao1005/Image/raw/master/DVAR/CPSR.png">
+<meta property="og:image" content="https://azeria-labs.com/wp-content/uploads/2017/03/cpsr2.png">
+<meta property="og:updated_time" content="2018-07-05T03:13:35.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DVAR：路由器靶场，实战">
 <meta name="twitter:description" content="[TOC] 这篇写的是对DVAR: 路由器靶场的研究。 1. 准备一开始能打开虚拟机说的网址，但是后来就打不开了。摸不着头脑… 查看了很多资料，众说纷纭：  要ifconfig和在主机上ipconfig查看双方地址 虚拟机要用户名和密码才能输入命令，找了很久终于在另一个页面上找到了密码，然后发现似乎只要输入root就行了… 好，终于进去了，但config了很久，还是不行。 ​      NAT,">
+<meta name="twitter:image" content="https://github.com/Miaomiao1005/Image/raw/master/DVAR/1.png">
 
 
 
@@ -421,8 +428,439 @@
 <p>【师傅说这个思路是在开玩笑..思路5，再见】</p>
 <h2 id="思路6：直接在虚拟机里找"><a href="#思路6：直接在虚拟机里找" class="headerlink" title="思路6：直接在虚拟机里找"></a>思路6：直接在虚拟机里找</h2><p>在群里问了智障问题之后，大佬回答说：</p>
 <p>人家给了个虚拟机镜像，这个镜像就是这个路由器，只是用虚拟机把他跑起来了而已 ，模拟的物理环境罢了 ，如果放到真实环境上，这就是固件 。跟代码审计、漏洞复现、web上找洞是一样的。有源码。就用源码调试，<br>没有源码。就逆向动态调试。打log什么的。这..大概的意思就是直接在虚拟机里，用binwalk解包，然后用工具逆向？</p>
-<p>理解：所以说，虚拟机跑起来就是个Linux的系统，然后一开始直接就运行了路由器程序。</p>
-<h3 id="问题1：怎么在虚拟机里找到固件的镜像呢？"><a href="#问题1：怎么在虚拟机里找到固件的镜像呢？" class="headerlink" title="问题1：怎么在虚拟机里找到固件的镜像呢？"></a>问题1：怎么在虚拟机里找到固件的镜像呢？</h3><p>直接在login的地方root，然后输入 find，出来了两个</p>
+<p>理解：所以说，虚拟机里跑起来的就是个Linux的系统，然后开机启动直接就运行了路由器程序。</p>
+<h3 id="问题1：怎么在虚拟机里找到固件的镜像呢？"><a href="#问题1：怎么在虚拟机里找到固件的镜像呢？" class="headerlink" title="问题1：怎么在虚拟机里找到固件的镜像呢？"></a>问题1：怎么在虚拟机里找到固件的镜像呢？</h3><p>直接在login的地方root，然后输入 find，出来了两个文件：</p>
+<p><img src="https://github.com/Miaomiao1005/Image/raw/master/DVAR/1.png" alt="dvar1"></p>
+<p>看样子.gdbinit就是用来分析的软件了</p>
+<p>用vi README.TXT打开txt文件，看了看简介</p>
+<p>输入 ./.gdbinit，说perimission denied。网上说如果没有权限的话，就输入 chmod +x filename, 但是输入之后没有反应</p>
+<h1 id="3-学习"><a href="#3-学习" class="headerlink" title="3. 学习"></a>3. 学习</h1><p>现在还是摸不着头脑.. DVAR的作者说不会的话就去看azeria labs的教程，所以我先看一下教程</p>
+<p>##3.1 ARM Assembly Basics</p>
+<p>###Part 1: 简介</p>
+<p><img src="https://azeria-labs.com/wp-content/uploads/2017/03/gif-assembly-to-machine-code.gif" alt="img2"></p>
+<p>ARM汇编中， GNU BInutils提供了一个工具，叫as，用来把汇编语言转换成机器语言。这种程序是以.s结尾，比如写了一个program.s，可以这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ as program.s -o program.o</span><br><span class="line">$ ld program.o -o program</span><br></pre></td></tr></table></figure>
+<p>​    </p>
+<h3 id="Part-2-数据和寄存器"><a href="#Part-2-数据和寄存器" class="headerlink" title="Part 2: 数据和寄存器"></a>Part 2: 数据和寄存器</h3><p>####数据类型</p>
+<p><img src="https://azeria-labs.com/wp-content/uploads/2017/03/data-types-1.png" alt="img3"></p>
+<p>这些不同数据种类的后缀有（s表示singed，有符号，有符号的数可以是正和负的，无符号不能是负数）</p>
+<ul>
+<li><p>words: 没有extension</p>
+</li>
+<li><p>halfwords: -h , -sh</p>
+</li>
+<li>bytes: -b, -sb</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ldr = Load Word</span><br><span class="line">ldrh = Load unsigned Half Word</span><br><span class="line">ldrsh = Load signed Half Word</span><br><span class="line">ldrb = Load unsigned Byte</span><br><span class="line">ldrsb = Load signed Bytes</span><br><span class="line"></span><br><span class="line">str = Store Word</span><br><span class="line">strh = Store unsigned Half Word</span><br><span class="line">strsh = Store signed Half Word</span><br><span class="line">strb = Store unsigned Byte</span><br><span class="line">strsb = Store signed Byte</span><br></pre></td></tr></table></figure>
+<p>字节顺序Endianness(端序)，分为大端（Big-Endian，BE）和小端（Little-Edian，LE)</p>
+<p>比如Intel x86，是小端，低位放最不重要的数位。大端反之。Arm架构在ver3之前是小端，之后是Bi-Endian。</p>
+<h4 id="ARM寄存器"><a href="#ARM寄存器" class="headerlink" title="ARM寄存器"></a>ARM寄存器</h4><p>ARM寄存器有30个通用32位寄存器（除了ARMv6-M和ARMv7-M处理器），前16个寄存器在用户层可遇到，其他的寄存器在有特殊权限的软件中可用。</p>
+<p>前16个寄存器被命名为r0-15，被分为一般用途寄存器和特殊用途寄存器</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Alias</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R0</td>
+<td>–</td>
+<td>General purpose</td>
+</tr>
+<tr>
+<td>R1</td>
+<td>–</td>
+<td>General purpose</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>–</td>
+<td>General purpose</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>–</td>
+<td>General purpose</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>–</td>
+<td>General purpose</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>–</td>
+<td>General purpose</td>
+</tr>
+<tr>
+<td>R6</td>
+<td>–</td>
+<td>General purpose</td>
+</tr>
+<tr>
+<td>R7</td>
+<td>–</td>
+<td>Holds Syscall Number</td>
+</tr>
+<tr>
+<td>R8</td>
+<td>–</td>
+<td>General purpose</td>
+</tr>
+<tr>
+<td>R9</td>
+<td>–</td>
+<td>General purpose</td>
+</tr>
+<tr>
+<td>R10</td>
+<td>–</td>
+<td>General purpose</td>
+</tr>
+<tr>
+<td>R11</td>
+<td>FP</td>
+<td>Frame Pointer</td>
+</tr>
+<tr>
+<td>Special Purpose Registers</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>R12</td>
+<td>IP</td>
+<td>Intra Procedural Call</td>
+</tr>
+<tr>
+<td>R13</td>
+<td>SP</td>
+<td>Stack Pointer</td>
+</tr>
+<tr>
+<td>R14</td>
+<td>LR</td>
+<td>Link Register</td>
+</tr>
+<tr>
+<td>R15</td>
+<td>PC</td>
+<td>Program Counter</td>
+</tr>
+<tr>
+<td>CPSR</td>
+<td>–</td>
+<td>Current Program Status Register</td>
+</tr>
+</tbody>
+</table>
+<p>ARM registers vs Intel processors：</p>
+<table>
+<thead>
+<tr>
+<th>ARM</th>
+<th>Description</th>
+<th>x86</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R0</td>
+<td>General Purpose</td>
+<td>EAX</td>
+</tr>
+<tr>
+<td>R1-R5</td>
+<td>General Purpose</td>
+<td>EBX, ECX, EDX, ESI, EDI</td>
+</tr>
+<tr>
+<td>R6-R10</td>
+<td>General Purpose</td>
+<td>–</td>
+</tr>
+<tr>
+<td>R11 (FP)</td>
+<td>Frame Pointer</td>
+<td>EBP</td>
+</tr>
+<tr>
+<td>R12</td>
+<td>Intra Procedural Call</td>
+<td>–</td>
+</tr>
+<tr>
+<td>R13 (SP)</td>
+<td>Stack Pointer</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>R14 (LR)</td>
+<td>Link Register</td>
+<td>–</td>
+</tr>
+<tr>
+<td>R15 (PC)</td>
+<td>\&lt;- Program Counter / Instruction Pointer -&gt;</td>
+<td>EIP</td>
+</tr>
+<tr>
+<td>CPSR</td>
+<td>Current Program State Register/Flags</td>
+<td>EFLAGS</td>
+</tr>
+</tbody>
+</table>
+<p>R0-R12:  </p>
+<p>R13: stack pointer, 指向stack的顶部。主要用于特殊函数的存储，当函数返回的时候reclaim</p>
+<p>R14: link register</p>
+<p>R15: Program Counter，PC会自动随着指令执行的大小增加。一般来说，ARM状态都是4 bytes 大小，THUMB模式都是2 bytes大小。当一个分支指令被执行的时候，PC保留目的地地址。在执行的时候，PC存储了现在指令的地址加上8（两条ARM指令，ARM 状态），或是现在的指令地址加4（2条Thumb指令，THUMB 状态）。在x86中，PC永远是指向下一条指令的。</p>
+<p>注意：直接读PC的话，PC指向的是下一个指令，但是在debug的时候，PC指向的是PC现在的值加上8.</p>
+<h4 id="CPSR："><a href="#CPSR：" class="headerlink" title="CPSR："></a>CPSR：</h4><p>用GDB来debug ARM二进制的时候，能看见一个叫flags的东西</p>
+<p><img src="https://azeria-labs.com/wp-content/uploads/2017/03/cpsr.png" alt="img"> </p>
+<p>Flags里面的这几个单词，指的是CPSR寄存器里面特定位数代表的值，当激活的时候会变成粗体。N, Z, C, V位和x86里面的EFLAG寄存器中 SF, ZF, CF, OF位是一样的，用于条件执行和循环等。</p>
+<p><img src="https://github.com/Miaomiao1005/Image/raw/master/DVAR/CPSR.png" alt="image"></p>
+<p>上图是一个32位寄存器，左边放最重要的数右边放最不重要的（也就是小端），除了GE, M和空的外，都是一个bit大小。各个位的定义：</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N, negative</td>
+<td>当执行结果有负数的时候，enable</td>
+</tr>
+<tr>
+<td>Z, zero</td>
+<td>当执行结果有0值时，enable</td>
+</tr>
+<tr>
+<td>C, carry</td>
+<td>就是用来存储差值或其他，来进行下一步工作</td>
+</tr>
+<tr>
+<td>V, overflow</td>
+<td>当执行结果溢出，大于等于2的31次方或者小于负2的31次方</td>
+</tr>
+<tr>
+<td>E, endian-bit</td>
+<td>值为0表示ARM是小端，1是大端</td>
+</tr>
+<tr>
+<td>T, thumb-bit</td>
+<td>如果在thumb状态，就set，如果ARM状态，就没有</td>
+</tr>
+<tr>
+<td>M, mode-bits</td>
+<td>这些bits表达了现在的优先mode，比如USR, SVC等</td>
+</tr>
+<tr>
+<td>J, jazelle</td>
+<td>第三种执行状态，来让ARM处理器处理java字节码</td>
+</tr>
+</tbody>
+</table>
+<p>执行 cmp r1, r0 指令，也就是比较r1寄存器和r0寄存器（r1=4，r0=2）</p>
+<p><img src="https://azeria-labs.com/wp-content/uploads/2017/03/cpsr2.png" alt="img"> </p>
+<p>可以看见，$cpsr变成了 0x20000010, 2是carry flag，因为  cmp 4, 2就是 compare 4 against 2,4-2=2. </p>
+<p>###Part 3: ARM指令集</p>
+<h4 id="ARM-amp-THUMB"><a href="#ARM-amp-THUMB" class="headerlink" title="ARM &amp; THUMB"></a>ARM &amp; THUMB</h4><p>ARM处理器有两种主要的状态，ARM和Thumb。这两种状态和优先级无关，在SVC模式运行的代码可以是arm或者thumb。</p>
+<p>这两者主要的区别在于指令集，arm状态的指令集一直是32位的，thumb是16位（也可以是32位）。在写ARM shellcode的时候，用16位thumb指令集比较好，因为不需要NULL bytes, 而用16位就能减少null bytes</p>
+<p>thumb的种类，ARM和Thumb的区别，thumb和ARM的转换，都见网页</p>
+<h4 id="ARM指令集简介"><a href="#ARM指令集简介" class="headerlink" title="ARM指令集简介"></a>ARM指令集简介</h4><p>模板：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MNEMONIC&#123;S&#125;&#123;condition&#125; &#123;Rd&#125;, Operand1, Operand2</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>模板</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MNEMONIC</td>
+<td>指令的短名</td>
+</tr>
+<tr>
+<td>{S}</td>
+<td>suffix, 后缀，如果短名specified了，那condition flags会在操作结果之后update</td>
+</tr>
+<tr>
+<td>{condition}</td>
+<td>顾名思义</td>
+</tr>
+<tr>
+<td>{Rd}</td>
+<td>用来存储执行结果的寄存器或者destination</td>
+</tr>
+<tr>
+<td>Operand1</td>
+<td></td>
+</tr>
+<tr>
+<td>Operand2</td>
+</tr>
+</tbody>
+</table>
+<p>Operand2可以有以下的形式：</p>
+<table>
+<thead>
+<tr>
+<th>Operand2</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#123</td>
+<td>数值</td>
+</tr>
+<tr>
+<td>Rx</td>
+<td>寄存器x</td>
+</tr>
+<tr>
+<td>Rx, ASR n</td>
+<td>寄存器x的算术右位移n位(n在1和32之间)</td>
+</tr>
+<tr>
+<td>Rx, LSL n</td>
+<td>寄存器x逻辑左位移n(n在0和31之间)</td>
+</tr>
+<tr>
+<td>Rx, LSR n</td>
+<td>逻辑右位移n，n在1和32之间</td>
+</tr>
+<tr>
+<td>Rx, ROR n</td>
+<td>循环右移n，n在1和32之间，移出去的放在左侧</td>
+</tr>
+<tr>
+<td>Rx, RRx</td>
+<td>向右移动一个位置，用处理器进位标志提供一个要被移位的33位数量</td>
+</tr>
+</tbody>
+</table>
+<h5 id="逻辑位移与算术位移"><a href="#逻辑位移与算术位移" class="headerlink" title="逻辑位移与算术位移"></a>逻辑位移与算术位移</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1）算术移位 当乘数或除数是2n时，算术移位用来快速地完成对整数进行乘法或除法的运算。算数左移n位相当于乘上2n,执行方法是把原来的数中每一位都向左移动n个位置，左面移出的高位丢弃不要，右面低位空出的位置上全部补0。</span><br><span class="line">2）逻辑移位 逻辑左移n位的执行方法，是把原来的数中每一位都向左移动n个位置，左面移出的高位丢弃不要，右面低位空出的位置上全部补&quot;0&quot;。 逻辑右移n位的执行方法是把原来数中的每一位都向右移动n个位置，右面移出的低位丢弃不要，左面高位空出的位置上全部补0。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">比如一个有符号位的8位二进制数11001101，逻辑右移就不管符号位，如果移一位就变成01100110。算术右移要管符号位，右移一位变成10100110。</span><br><span class="line">逻辑左移=算数左移，右边统一添0</span><br><span class="line">逻辑右移，左边统一添0</span><br><span class="line">算数右移，左边添加的数和符号有关</span><br><span class="line">e.g:1010101010，其中[]位是添加的数字</span><br><span class="line">逻辑左移一位：010101010[0]</span><br><span class="line">算数左移一位：010101010[0]</span><br><span class="line">逻辑右移一位：[0]101010101</span><br><span class="line">算数右移一位：[1]101010101</span><br></pre></td></tr></table></figure>
+<p>例子</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>执行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADD   R0, R1, R2</td>
+<td>把R1, R2加起来放在R0</td>
+</tr>
+<tr>
+<td>ADD   R0, R1, #2</td>
+<td>把R1, 数字2加起来放在R0</td>
+</tr>
+<tr>
+<td>MOVLE R0, #5</td>
+<td>当满足条件LE(Less than or equal)的时候，把数字5放入R0</td>
+</tr>
+<tr>
+<td>MOV   R0, R1, LSL #1</td>
+<td>把R1的数值逻辑左移一位后放入R0</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>缩写</th>
+<th>指令</th>
+<th>缩写</th>
+<th>指令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MOV</td>
+<td></td>
+<td>EOR</td>
+<td></td>
+</tr>
+<tr>
+<td>MVN</td>
+<td>按位取反</td>
+<td>LDR</td>
+<td></td>
+</tr>
+<tr>
+<td>ADD</td>
+<td></td>
+<td>STR</td>
+<td>store</td>
+</tr>
+<tr>
+<td>SUB</td>
+<td>减，sub a, b a=a-b</td>
+<td>LDM</td>
+<td></td>
+</tr>
+<tr>
+<td>MUL</td>
+<td>乘</td>
+<td>STM</td>
+<td></td>
+</tr>
+<tr>
+<td>LSL</td>
+<td></td>
+<td>PUSH</td>
+<td></td>
+</tr>
+<tr>
+<td>LSR</td>
+<td></td>
+<td>POP</td>
+<td></td>
+</tr>
+<tr>
+<td>ASR</td>
+<td></td>
+<td>B</td>
+<td></td>
+</tr>
+<tr>
+<td>ROR</td>
+<td></td>
+<td>BL</td>
+<td></td>
+</tr>
+<tr>
+<td>CMP</td>
+<td>compare</td>
+<td>BX</td>
+<td></td>
+</tr>
+<tr>
+<td>AND</td>
+<td></td>
+<td>BLX</td>
+<td></td>
+</tr>
+<tr>
+<td>OOR</td>
+<td></td>
+<td>SWI/SVC</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ｍｖｎ：与mov指令用法差不多，唯一的区别是：它赋值的时候，先按位取反</span><br><span class="line"> </span><br><span class="line">ｅｇ１：</span><br><span class="line">　　　ｍｖｎ　ｒ０，０ｘａ００００００７　　　</span><br><span class="line">执行结果：ｒ０＝０ｘ５ｆｆｆｆｆｆ８</span><br><span class="line">  </span><br><span class="line">ｅｇ２：</span><br><span class="line">　　　　ｍｖｎ　ｒ０，＃４</span><br><span class="line">执行结果：ｒ０＝－５</span><br><span class="line"> </span><br><span class="line">过程分析：先对４转换成２进制（０００００１００），取反（１１１１１０１１），求其补码，因为是负数，所以先对其正数（０１１１１０１１）求反（１００００１００），然后加一（１００００１０１）＝－５</span><br><span class="line"> </span><br><span class="line">负数的补码求法：对其正数求反＋１</span><br></pre></td></tr></table></figure>
+<p>###Part 4: Load and Store</p>
+<p>ARM用 load and store模式，所以只有load/store（LDR STR）指令可以访问内存，而x86的大多数指令都可以直接操作内存。所以ARM的数据必须先从内存移动到寄存器里，才能使用。</p>
 
       
     </div>
@@ -548,7 +986,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -559,7 +997,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -570,7 +1008,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -640,7 +1078,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-准备"><span class="nav-number">1.</span> <span class="nav-text">1. 准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-挖掘"><span class="nav-number">2.</span> <span class="nav-text">2. 挖掘</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路1：在路由器web页面寻找可疑的地方"><span class="nav-number">2.1.</span> <span class="nav-text">思路1：在路由器web页面寻找可疑的地方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路2：给路由器发送HTTP-request，然后找漏洞"><span class="nav-number">2.2.</span> <span class="nav-text">思路2：给路由器发送HTTP request，然后找漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路3：在虚拟机里提取程序，逆向"><span class="nav-number">2.3.</span> <span class="nav-text">思路3：在虚拟机里提取程序，逆向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路4：在路由器页面想办法把程序弄下来，逆向"><span class="nav-number">2.4.</span> <span class="nav-text">思路4：在路由器页面想办法把程序弄下来，逆向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路5：直接逆向虚拟机程序"><span class="nav-number">2.5.</span> <span class="nav-text">思路5：直接逆向虚拟机程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路6：直接在虚拟机里找"><span class="nav-number">2.6.</span> <span class="nav-text">思路6：直接在虚拟机里找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1：怎么在虚拟机里找到固件的镜像呢？"><span class="nav-number">2.6.1.</span> <span class="nav-text">问题1：怎么在虚拟机里找到固件的镜像呢？</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-准备"><span class="nav-number">1.</span> <span class="nav-text">1. 准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-挖掘"><span class="nav-number">2.</span> <span class="nav-text">2. 挖掘</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路1：在路由器web页面寻找可疑的地方"><span class="nav-number">2.1.</span> <span class="nav-text">思路1：在路由器web页面寻找可疑的地方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路2：给路由器发送HTTP-request，然后找漏洞"><span class="nav-number">2.2.</span> <span class="nav-text">思路2：给路由器发送HTTP request，然后找漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路3：在虚拟机里提取程序，逆向"><span class="nav-number">2.3.</span> <span class="nav-text">思路3：在虚拟机里提取程序，逆向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路4：在路由器页面想办法把程序弄下来，逆向"><span class="nav-number">2.4.</span> <span class="nav-text">思路4：在路由器页面想办法把程序弄下来，逆向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路5：直接逆向虚拟机程序"><span class="nav-number">2.5.</span> <span class="nav-text">思路5：直接逆向虚拟机程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路6：直接在虚拟机里找"><span class="nav-number">2.6.</span> <span class="nav-text">思路6：直接在虚拟机里找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1：怎么在虚拟机里找到固件的镜像呢？"><span class="nav-number">2.6.1.</span> <span class="nav-text">问题1：怎么在虚拟机里找到固件的镜像呢？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-学习"><span class="nav-number">3.</span> <span class="nav-text">3. 学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-2-数据和寄存器"><span class="nav-number">3.0.1.</span> <span class="nav-text">Part 2: 数据和寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ARM寄存器"><span class="nav-number">3.0.1.1.</span> <span class="nav-text">ARM寄存器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CPSR："><span class="nav-number">3.0.1.2.</span> <span class="nav-text">CPSR：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ARM-amp-THUMB"><span class="nav-number">3.0.1.3.</span> <span class="nav-text">ARM &amp; THUMB</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ARM指令集简介"><span class="nav-number">3.0.1.4.</span> <span class="nav-text">ARM指令集简介</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#逻辑位移与算术位移"><span class="nav-number">3.0.1.4.1.</span> <span class="nav-text">逻辑位移与算术位移</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
