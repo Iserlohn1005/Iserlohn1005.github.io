@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-30T05:22:36.942Z</updated>
+  <updated>2018-07-07T22:07:41.686Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2118/05/25/%E6%97%B6%E9%97%B4%E7%BA%BF/"/>
     <id>http://yoursite.com/2118/05/25/时间线/</id>
     <published>2118-05-25T22:55:18.000Z</published>
-    <updated>2018-05-30T05:22:36.942Z</updated>
+    <updated>2018-07-07T22:07:41.686Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="2018"><a href="#2018" class="headerlink" title="2018"></a>2018</h1><h2 id="2018-05-25"><a href="#2018-05-25" class="headerlink" title="2018.05.25"></a>2018.05.25</h2><p>用GitHub搭了一个<a href="https://miaomiao1005.github.io/2018/05/25/Build%20Your%20Own%20Blog%20with%20Github%20Pages/" target="_blank" rel="noopener">博客</a></p><h2 id="2018-05-25-1"><a href="#2018-05-25-1" class="headerlink" title="2018.05.25"></a>2018.05.25</h2><p><a href="https://miaomiao1005.github.io/2018/05/29/DVAR-arm/" target="_blank" rel="noopener">DVAR: 路由器</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="2018"><a href="#2018" class="headerlink" title="2018"></a>2018</h1><h2 id="2018-05-25"><a href="#2018-05-25" class="headerlink" title="2018.05.25"></a>2018.05.25</h2><p>用GitHub搭了一个<a href="https://miaomiao1005.github.io/2018/05/25/Build%20Your%20Own%20Blog%20with%20Github%20Pages/" target="_blank" rel="noopener">博客</a></p><h2 id="2018-05-25-1"><a href="#2018-05-25-1" class="headerlink" title="2018.05.25"></a>2018.05.25</h2><p><a href="https://miaomiao1005.github.io/2018/05/29/DVAR-arm/" target="_blank" rel="noopener">DVAR: 路由器</a></p><h2 id="2018-05-31"><a href="#2018-05-31" class="headerlink" title="2018.05.31"></a>2018.05.31</h2><p><a href="https://miaomiao1005.github.io/2018/05/31/Using-Github-as-image-host/" target="_blank" rel="noopener">用Github做图床</a></p><h2 id="2018-07-07"><a href="#2018-07-07" class="headerlink" title="2018.07.07"></a>2018.07.07</h2><p>终于搬完家可以开心的学习了~ 5月份曾经试着用qemu跑Raspberry Pi，但是失败了，现在有时间好好研究了一下，终于装好啦</p><p><a href="https://miaomiao1005.github.io/2018/07/07/Emulate-Raspberry-Pi-with-Qemu-in-Ubuntu/" target="_blank" rel="noopener">用Qemu模拟Raspberry Pi</a></p>]]></content>
     
     <summary type="html">
     
@@ -38,32 +38,6 @@
     
     
       <category term="汇总" scheme="http://yoursite.com/tags/%E6%B1%87%E6%80%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Happy Life</title>
-    <link href="http://yoursite.com/2078/05/31/Happy-Life/"/>
-    <id>http://yoursite.com/2078/05/31/Happy-Life/</id>
-    <published>2078-06-01T00:07:01.000Z</published>
-    <updated>2018-07-07T22:02:18.073Z</updated>
-    
-    <content type="html"><![CDATA[<p>[TOC]</p><p>自从看了知乎上的一个问题，<a href="https://www.zhihu.com/question/20137753" target="_blank" rel="noopener">有哪些食物为了健康你一定不吃？</a>之后，我对出去吃再也没有兴趣了呢..</p><p>嘤嘤嘤以前每周总有几次能改善下伙食，现在想想，去Mikado吧，怕生鱼片会不会不干净哦；Silk Road呢，油盐辣太多了；火锅吃腻了，而且食材的新鲜程度很可疑呢；西餐又不喜欢吃..</p><p>所以只能自己做了_(:3 」∠)_</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;p&gt;自从看了知乎上的一个问题，&lt;a href=&quot;https://www.zhihu.com/question/20137753&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;有哪些食物为了健康你一定不吃？&lt;/a&gt;之后，我对出去吃再也没
-      
-    
-    </summary>
-    
-      <category term="生活" scheme="http://yoursite.com/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="生活，食物" scheme="http://yoursite.com/tags/%E7%94%9F%E6%B4%BB%EF%BC%8C%E9%A3%9F%E7%89%A9/"/>
     
   </entry>
   
@@ -166,6 +140,32 @@
       <category term="环境搭建" scheme="http://yoursite.com/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     
       <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Happy Life</title>
+    <link href="http://yoursite.com/2008/10/07/Happy-Life/"/>
+    <id>http://yoursite.com/2008/10/07/Happy-Life/</id>
+    <published>2008-10-08T00:07:01.000Z</published>
+    <updated>2018-07-07T22:05:24.772Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><p>自从看了知乎上的一个问题，<a href="https://www.zhihu.com/question/20137753" target="_blank" rel="noopener">有哪些食物为了健康你一定不吃？</a>之后，我对出去吃再也没有兴趣了呢..</p><p>嘤嘤嘤以前每周总有几次能改善下伙食，现在想想，去Mikado吧，怕生鱼片会不会不干净哦；Silk Road呢，油盐辣太多了；火锅吃腻了，而且食材的新鲜程度很可疑呢；西餐又不喜欢吃..</p><p>所以只能自己做了_(:3 」∠)_</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;自从看了知乎上的一个问题，&lt;a href=&quot;https://www.zhihu.com/question/20137753&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;有哪些食物为了健康你一定不吃？&lt;/a&gt;之后，我对出去吃再也没
+      
+    
+    </summary>
+    
+      <category term="生活" scheme="http://yoursite.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="生活，食物" scheme="http://yoursite.com/tags/%E7%94%9F%E6%B4%BB%EF%BC%8C%E9%A3%9F%E7%89%A9/"/>
     
   </entry>
   
