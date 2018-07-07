@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Miaomiao">
 <meta property="og:description" content="[TOC] 用GitHub搭博客按照Hexo+GitPage搭建个人博客一步步来，期间遇到了很多小问题~ ​          1. 换个git bash的名字以前装过git，用的是老的用户名和密码，这次想换成新的。问题是重装了几次之后，一打开git bash还是老的用户名和密码 在网上搜了搜，有人说在control panel - user accounts - manage windows c">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-07T22:00:20.282Z">
+<meta property="og:updated_time" content="2018-07-07T22:39:19.245Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用Hexo &amp; Github Pages来搭一个自己的博客~">
 <meta name="twitter:description" content="[TOC] 用GitHub搭博客按照Hexo+GitPage搭建个人博客一步步来，期间遇到了很多小问题~ ​          1. 换个git bash的名字以前装过git，用的是老的用户名和密码，这次想换成新的。问题是重装了几次之后，一打开git bash还是老的用户名和密码 在网上搜了搜，有人说在control panel - user accounts - manage windows c">
@@ -407,10 +407,11 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br><span class="line">hexo new page tags</span><br><span class="line">hexo new page about</span><br></pre></td></tr></table></figure>
 <p>这样就会在/sources里面生成tags, about, categories这几个文件夹，里面有index.md文件</p>
 <p>之后，在以后写md文件中，在文档头部填入如下格式，即可自动分类、标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章名 （无空格）</span><br><span class="line">date: 2013-05-29 07:56:29 #发表日期（无空格）</span><br><span class="line">categories:（空一格）</span><br><span class="line">- 一级类别 （无空格）</span><br><span class="line">- 二级类别（无空格）  #文章分类</span><br><span class="line">tags: [博客，文章，随笔] （无空格）     #文章标签，可以一次添加多个标签</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章名 （无空格）</span><br><span class="line">date: 2013-05-29 07:56:29 #发表日期（无空格）</span><br><span class="line">categories:（空一格）</span><br><span class="line">- 一级类别 （无空格）</span><br><span class="line">- 二级类别（无空格）  #文章分类</span><br><span class="line">tags: [博客，文章，随笔]     #文章标签，可以一次添加多个标签</span><br></pre></td></tr></table></figure>
 <p>然后在themes里面的_config.yml文件里，menu，然后把tags，about，categories的#去掉</p>
 <p>要是想显示成中文，就把Hexo文件夹里的_config.yml里面的language 设置成zh-Hans</p>
 <p>这样，就有了很多分类</p>
+<p>注意 tag里面的逗号必须是英文逗号，然后加一个英文空格，不然就会都黏在一起..</p>
 <h3 id="6-2-头像"><a href="#6-2-头像" class="headerlink" title="6.2 头像"></a>6.2 头像</h3><p>themes文件夹，_config.yml，增加avatar字段</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 头像</span><br><span class="line">avatar: /images/avatar.png</span><br></pre></td></tr></table></figure>
 <p>png文件要放在themes的source/images文件夹里</p>
@@ -583,7 +584,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
