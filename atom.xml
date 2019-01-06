@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Miaomiao</title>
+  <title>Iserlohn</title>
   
   <subtitle>Give me five :D</subtitle>
   <link href="/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>Miaomiao</name>
+    <name>Iserlohn Fortress</name>
     
   </author>
   
@@ -93,7 +93,7 @@
     <link href="http://yoursite.com/2018/05/31/Regex-for-XSS-detection/"/>
     <id>http://yoursite.com/2018/05/31/Regex-for-XSS-detection/</id>
     <published>2018-05-31T21:36:10.000Z</published>
-    <updated>2019-01-06T23:26:17.825Z</updated>
+    <updated>2019-01-06T23:36:11.333Z</updated>
     
     <content type="html"><![CDATA[<p>[TOC]</p><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>以前总觉得正则表达式很难很头疼，这段时间仔细学了一下，感觉其实挺简单的~</p><p>推荐一个很好的写regex的网站：<a href="https://regex101.com/" target="_blank" rel="noopener">https://regex101.com/</a></p><p>​     </p><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><p><a href="https://juejin.im/post/5b5db5b8e51d4519155720d2" target="_blank" rel="noopener">可能是最好的正则表达式教程了吧</a></p><p>这是启蒙教程，很全面很详细</p><p><a href="http://blog.51yip.com/jsjquery/1076.html" target="_blank" rel="noopener">js正则标志/g,/i,/m说明</a></p><p>/g 表示该表达式将用来在输入字符串中查找所有可能的匹配，返回的结果可以是多个。如果不加/g最多只会匹配一个</p><p>/i  表示匹配的时候不区分大小写</p><p>/m 表示多行匹配，什么是多行匹配呢？就是匹配换行符两端的潜在匹配。影响正则中的^$符号</p><h2 id="先行断言和后行断言-lookahead-amp-lookbehind"><a href="#先行断言和后行断言-lookahead-amp-lookbehind" class="headerlink" title="先行断言和后行断言 lookahead&amp;lookbehind"></a>先行断言和后行断言 lookahead&amp;lookbehind</h2><p><a href="http://blog.51cto.com/cnn237111/749047" target="_blank" rel="noopener">http://blog.51cto.com/cnn237111/749047</a></p><p>(?=pattern) 零宽正向先行断言(zero-width positive lookahead assertion) ，表示 紧接该位置之后的字符序列能够匹配pattern。</p><p>(?!pattern) 零宽负向先行断言(zero-width negative lookahead assertion) ，表示紧接该位置之后的字符序列不能匹配pattern。<br>(?&lt;=pattern) 零宽正向后行断言(zero-width positive lookbehind assertion) ，表示紧接该位置之前的字符序列能够匹配pattern。<br>(?&lt;!pattern) 零宽负向后行断言(zero-width negative lookbehind assertion) ，表示紧接该位置之前的字符序列不能匹配pattern。</p><p>#XSS过滤</p><p>一开始在思考XSS怎么写的时候有点摸不着头脑，因为非常复杂，无从下手.. 后来终于找到了一个例子：</p><p><a href="https://my.oschina.net/u/347386/blog/119392" target="_blank" rel="noopener">几种常见攻击的正则表达式</a></p><p>这里作者用(\s\S)*代表了任意字符，(|)用来过滤不同的两种情况，蛮有inspiring的。毕竟光看语法只能写简单的句子，要写长的复杂的，还是需要先看看别人是怎么想的</p><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>在实际测试XSS的过程中，发现如果script前面有两个尖括号，是不能形成攻击的。然而在用negative lookbehind去掉这种情况的时候，我发现，不知道为什么 (?!&lt;)这个符号是不成立的，其他的都行，比如(?!a)等等，但是直接加&lt;就是不行的..</p><p>到现在我还没有找到问题的所在。</p><p>另外不仅两个尖括号不行，\<!-- 和 -->之间有script也是不行的。对于这种评论，可以用(?&lt;!(!–))\<xxxx>来解决。</xxxx></p>]]></content>
     
@@ -190,34 +190,6 @@
       <category term="环境搭建" scheme="http://yoursite.com/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     
       <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Happy Life</title>
-    <link href="http://yoursite.com/2008/10/07/Happy-Life/"/>
-    <id>http://yoursite.com/2008/10/07/Happy-Life/</id>
-    <published>2008-10-08T00:07:01.000Z</published>
-    <updated>2018-07-07T22:38:13.418Z</updated>
-    
-    <content type="html"><![CDATA[<p>[TOC]</p><p>自从看了知乎上的一个问题，<a href="https://www.zhihu.com/question/20137753" target="_blank" rel="noopener">有哪些食物为了健康你一定不吃？</a>之后，我对出去吃再也没有兴趣了呢..</p><p>嘤嘤嘤以前每周总有几次能改善下伙食，现在想想，去Mikado吧，怕生鱼片会不会不干净哦；Silk Road呢，油盐辣太多了；火锅吃腻了，而且食材的新鲜程度很可疑呢；西餐又不喜欢吃..</p><p>所以只能自己做了_(:3 」∠)_</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;p&gt;自从看了知乎上的一个问题，&lt;a href=&quot;https://www.zhihu.com/question/20137753&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;有哪些食物为了健康你一定不吃？&lt;/a&gt;之后，我对出去吃再也没
-      
-    
-    </summary>
-    
-      <category term="生活" scheme="http://yoursite.com/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="生活" scheme="http://yoursite.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-      <category term="食物" scheme="http://yoursite.com/tags/%E9%A3%9F%E7%89%A9/"/>
     
   </entry>
   
