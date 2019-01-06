@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2118/05/25/时间线/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/18/IoT-0day/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Miaomiao">
@@ -284,7 +284,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2118/05/25/时间线/" itemprop="url">时间线</a></h1>
+                <a class="post-title-link" href="/2018/07/18/IoT-0day/" itemprop="url">IoT 0day</a></h1>
         
 
         <div class="post-meta">
@@ -296,8 +296,266 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2118-05-25T16:55:18-06:00">
-                2118-05-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-18T22:19:34-06:00">
+                2018-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/16/Regex-for-XSS-detection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miaomiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/littlegirl.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miaomiao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/16/Regex-for-XSS-detection/" itemprop="url">Regex for XSS detection</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-16T15:36:10-06:00">
+                2018-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>以前总觉得正则表达式很难很头疼，这段时间仔细学了一下，感觉其实挺简单的~</p>
+<p>推荐一个很好的写regex的网站：<a href="https://regex101.com/" target="_blank" rel="noopener">https://regex101.com/</a></p>
+<p>​     </p>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><p><a href="https://juejin.im/post/5b5db5b8e51d4519155720d2" target="_blank" rel="noopener">可能是最好的正则表达式教程了吧</a></p>
+<p>这是启蒙教程，很全面很详细</p>
+<p><a href="http://blog.51yip.com/jsjquery/1076.html" target="_blank" rel="noopener">js正则标志/g,/i,/m说明</a></p>
+<p>/g 表示该表达式将用来在输入字符串中查找所有可能的匹配，返回的结果可以是多个。如果不加/g最多只会匹配一个</p>
+<p>/i  表示匹配的时候不区分大小写</p>
+<p>/m 表示多行匹配，什么是多行匹配呢？就是匹配换行符两端的潜在匹配。影响正则中的^$符号</p>
+<h2 id="先行断言和后行断言-lookahead-amp-lookbehind"><a href="#先行断言和后行断言-lookahead-amp-lookbehind" class="headerlink" title="先行断言和后行断言 lookahead&amp;lookbehind"></a>先行断言和后行断言 lookahead&amp;lookbehind</h2><p><a href="http://blog.51cto.com/cnn237111/749047" target="_blank" rel="noopener">http://blog.51cto.com/cnn237111/749047</a></p>
+<p>(?=pattern) 零宽正向先行断言(zero-width positive lookahead assertion) ，表示 紧接该位置之后的字符序列能够匹配pattern。</p>
+<p>(?!pattern) 零宽负向先行断言(zero-width negative lookahead assertion) ，表示紧接该位置之后的字符序列不能匹配pattern。<br>(?&lt;=pattern) 零宽正向后行断言(zero-width positive lookbehind assertion) ，表示紧接该位置之前的字符序列能够匹配pattern。<br>(?&lt;!pattern) 零宽负向后行断言(zero-width negative lookbehind assertion) ，表示紧接该位置之前的字符序列不能匹配pattern。</p>
+<p>#XSS过滤</p>
+<p>一开始在思考XSS怎么写的时候有点摸不着头脑，因为非常复杂，无从下手.. 后来终于找到了一个例子：</p>
+<p><a href="https://my.oschina.net/u/347386/blog/119392" target="_blank" rel="noopener">几种常见攻击的正则表达式</a></p>
+<p>这里作者用(\s\S)*代表了任意字符，(|)用来过滤不同的两种情况，蛮有inspiring的。毕竟光看语法只能写简单的句子，要写长的复杂的，还是需要先看看别人是怎么想的</p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>在实际测试XSS的过程中，发现&lt;\<script>这种形式是不能形成攻击的，然而在用negative lookbehind的时候，我发现，不知道为什么 (?!&lt;)这个符号是不成立的，其他的都行，比如(?!a)等等，但是直接加&lt;就是不行的..</p>
+<p>到现在我还没有找到问题的所在。</p>
+<p>另外不仅&lt;\<script>不行，\<!-- 和 -->之间有script也是不行的。对于这种评论，可以用(?&lt;!(!–))\<script>来解决。</p>
+</script></p>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/Reproduction-for-IoT-Security-PPT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miaomiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/littlegirl.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miaomiao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/07/Reproduction-for-IoT-Security-PPT/" itemprop="url">Reproduction for IoT Security PPT</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-07T22:09:36-06:00">
+                2018-07-07
               </time>
             
 
@@ -319,8 +577,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/时间线/" itemprop="url" rel="index">
-                    <span itemprop="name">时间线</span>
+                  <a href="/categories/路由器/" itemprop="url" rel="index">
+                    <span itemprop="name">路由器</span>
                   </a>
                 </span>
 
@@ -358,12 +616,153 @@
       
         
           
-            <h1 id="2018"><a href="#2018" class="headerlink" title="2018"></a>2018</h1><h2 id="2018-05-25"><a href="#2018-05-25" class="headerlink" title="2018.05.25"></a>2018.05.25</h2><p>用GitHub搭了一个<a href="https://miaomiao1005.github.io/2018/05/25/Build%20Your%20Own%20Blog%20with%20Github%20Pages/" target="_blank" rel="noopener">博客</a></p>
-<h2 id="2018-05-25-1"><a href="#2018-05-25-1" class="headerlink" title="2018.05.25"></a>2018.05.25</h2><p><a href="https://miaomiao1005.github.io/2018/05/29/DVAR-arm/" target="_blank" rel="noopener">DVAR: 路由器</a></p>
-<h2 id="2018-05-31"><a href="#2018-05-31" class="headerlink" title="2018.05.31"></a>2018.05.31</h2><p><a href="https://miaomiao1005.github.io/2018/05/31/Using-Github-as-image-host/" target="_blank" rel="noopener">用Github做图床</a></p>
-<h2 id="2018-07-07"><a href="#2018-07-07" class="headerlink" title="2018.07.07"></a>2018.07.07</h2><p>终于搬完家可以开心的学习了~ 5月份曾经试着用qemu跑Raspberry Pi，但是失败了，现在有时间好好研究了一下，终于装好啦</p>
-<p><a href="https://miaomiao1005.github.io/2018/07/07/Emulate-Raspberry-Pi-with-Qemu-in-Ubuntu/" target="_blank" rel="noopener">用Qemu模拟Raspberry Pi</a></p>
-
+            <p>[TOC]</p>
+<h1 id="对《物联网安全》PPT实例的复现（也是《揭秘0day》的第12章实例）"><a href="#对《物联网安全》PPT实例的复现（也是《揭秘0day》的第12章实例）" class="headerlink" title="对《物联网安全》PPT实例的复现（也是《揭秘0day》的第12章实例）"></a>对《物联网安全》PPT实例的复现（也是《揭秘0day》的第12章实例）</h1><h1 id="1-用binwalk解压bin文件"><a href="#1-用binwalk解压bin文件" class="headerlink" title="1. 用binwalk解压bin文件"></a>1. 用binwalk解压bin文件</h1><p>在安全了能模拟RPi的Qemu的虚拟机上，安装binwalk，在终端输入 sudo apt install binwalk，然后把下载的D-LINK DIR-505 FIRMWARE 1.08B10.ZIP 解压后复制到虚拟机 ~/dir505中，接着binwalk -eM DIR505A1_FW108B10.bin。但是不成功。</p>
+<p>可能是binwalk没装好..? 重新来，看binwalk的GitHub页面有什么要装的dependencies。</p>
+<p>在终端输入python，看到ubuntu 16.04已经自动安装了Python 2.7.12。然后开始安装binwalk。</p>
+<p>分别输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo python setup.py install   //python: can&apos;t open file &apos;setup.py&apos;: [Errno 2] No such file or directory</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-lzma    //装好了</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install nose coverage      //sudo: pip: command not found</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-crypto   //装好了</span><br></pre></td></tr></table></figure>
+<p>​    </p>
+<p>研究了一番之后，发现要首先 sudo apt install git，安装好git，然后 git clone <a href="https://github.com/devttys0/binwalk，最后再" target="_blank" rel="noopener">https://github.com/devttys0/binwalk，最后再</a> sudo python setup.py install…? 咦？但是这样还是同样的错误，没有setup.py文件…</p>
+<p>头疼_(:3 」∠)_</p>
+<p>重新来，恢复到刚装好qemu RPi的时候。</p>
+<p>首先查一下 sudo python setup.py install的用法。python setup.py install似乎是用来安装python模块的…？网上下载第三方库，解压，找到setup.py，在这个文件夹里打开终端，运行 sudo python setup.py install就可以安装了。</p>
+<p>唔，那我先装git，然后clone binwalk，然后python setup.py install试试。</p>
+<p>又遇到了新的问题，在 sudo apt install git的时候，就Could not get lock /var/lib/dpkg/lock.. 查了一下是因为还有一个线程在用apt-get。可以重启电脑，或者：ps -A | grep apt-get ，搜索所有运行着的线程，找到第一列是apt的线程，记下第二列的线程号，然后sudo kill 线程号就行了。但是我这里输入ps -A | grep apt-get没有任何反应…</p>
+<p>哦我知道了 ps -A是用来看线程的，而grep apt-get是用来筛选有apt-get的内容，而我用的是apt而不是apt-get…  输入 ps -A | grep apt 就能得到结果了。</p>
+<p>非常好，终于kill了这些线程，然后安装上了git.. clone之后，在home里面就能找到binwalk文件，然后在这个文件夹里打开终端，sudo python setup.py install 安装。这一步可算是装好啦…</p>
+<p>hin好~ 然后开始安装各种dependecies，首先让我照个快照.. 说起来要是自己的主机也能有快照功能就好了呢…</p>
+<p>一个个安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-lzma</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install nose coverage    //还是pip: command not found..   </span><br><span class="line">那就先安装一个 sudo apt-get install python-pip   //如果是python3的话就把python后面加个3</span><br></pre></td></tr></table></figure>
+<p>最后发现有一行小字说只要sudo ./deps.sh 就能把所有dependencies都装好.. _(:3 」∠)_ （主要要在binwalk的terminal里面输入这一行代码才行）</p>
+<p>这下安装好啦，照个快照~</p>
+<p>把bin复制到虚拟机里，然后用binwalk -eM DIR505A1_FW108B10.bin。太感动了~ 能顺利解压了嘤嘤嘤</p>
+<p>#2. 模拟运行 </p>
+<p>先安装sudo apt-get install binfmt-support qemu-user-static （或者 sudo apt install qemu-user-static ?) ，然后切换到固件解压出来的文件系统目录下使用qemu模拟运行  </p>
+<p>sudo cp $(which qemu-mipsel-static) .</p>
+<p>sudo chroot . ./qemu-mipsel-static ./bin/busybox</p>
+<p>(或者 cp $(which qemu-mips-static) ./  和 sudo chroot . ./qemu-mips-static ./bin/ifconfig )</p>
+<p>但是都出问题了… 【疲惫的微笑..</p>
+<p>感觉需要再装个firmware mod kit和IDA 和qemu-mips… 感觉容量已经快不够了_(:3 」∠)_ 嘤嘤嘤并不想重新弄个虚拟机…</p>
+<h1 id="3-分析my-cgi-cgi"><a href="#3-分析my-cgi-cgi" class="headerlink" title="3. 分析my_cgi.cgi"></a>3. 分析my_cgi.cgi</h1><p>PPT上说，漏洞出在my_cgi.cgi中。</p>
+<h3 id="问题1-这是怎么发现的…？"><a href="#问题1-这是怎么发现的…？" class="headerlink" title="问题1. 这是怎么发现的…？"></a>问题1. 这是怎么发现的…？</h3><p>然后针对my_cgi.cgi进行调试，使用环境变量传递HTTP参数，标准输入输出传递POST参数</p>
+<p>到这里就看不懂了_(:3 」∠)_，我决定重新学一下《揭秘家用路由器0day》这本书</p>
+<h1 id="4-揭秘家用路由器0day"><a href="#4-揭秘家用路由器0day" class="headerlink" title="4. 揭秘家用路由器0day"></a>4. 揭秘家用路由器0day</h1><p>准备用外接硬盘做一个新的虚拟机，这样位子大一点</p>
+<p>按照前一篇文章，安装好了qemu。然后安装wine<a href="https://wiki.winehq.org/Ubuntu" target="_blank" rel="noopener">安装wine的网址</a></p>
+<p>##安装</p>
+<p>###安装IDA</p>
+<p>按照《揭秘》这本书，把所有IDA Pro下的文件都复制到Linux的/opt/ida61目录下</p>
+<p>原来 cd ~ 就是到了home， cd / 就是到了home上面一级的文件夹（也就是点computer就能出现的层），这一层有opt文件夹。</p>
+<p>然后用sudo nautilus，把ida6.8复制到opt文件夹中。</p>
+<p>在home目录下，新建一个document，写入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">wine /opt/&lt;ida foldername&gt;/idaq.exe     //《揭秘》书里写的是idag.exe，但是IDA6.8里面只有idaq.exe</span><br></pre></td></tr></table></figure>
+<p>写好后把文件名修改为ida.sh，然后在终端里输入 sh ida.sh， 就可以运行了</p>
+<p>运行的时候出现一个error：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0009:err:module:import_dll Library python27.dll (which is needed by L&quot;Z:\\opt\\ida68\\plugins\\python.plw&quot;) not found</span><br></pre></td></tr></table></figure>
+<p>下载一个python27.dll并放入/opt/ida68里面就行了。中间出了不少问题，比如虽然已经复制了python27.dll，但是机器说没有。最后先在主机里把python27.dll放入文件夹里，然后一起复制到虚拟机中。</p>
+<p>但是还是出现了IDA python: importing site failed。搜了搜，说这是个python的IDA 6.8的bug… emmm那我换7.0试试</p>
+<p>用7.0，ida.exe打开，但是还是没有python27.dll…复制了一个进去之后，发现还是不能用。重启虚拟机，发现这个复制进去的python27.dll权限跟其他的文件不一样。用sudo chmod 666 python27.dll 改了ida70和plugins文件夹里的两个27.dll文件，但是还是说缺少python27.dll…嗷嗷嗷抓狂了</p>
+<p>另外也有人说：</p>
+<p>出现<code>IDAPython: importing &quot;site&quot; failed</code> ，解决方法就是需要设置一个环境变量，如果你之前和我一样，是在<code>/usr/bin</code>下写了一个脚本来启动ida的，那么解决方法比较简单，也不会影响linux，否则如果直接设置环境变量会影响linux的python运行。</p>
+<p>脚本:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/ida</span><br><span class="line">export PYTHONPATH=/usr/lib/python2.7 &amp;&amp; wine idaq</span><br></pre></td></tr></table></figure>
+<p>哎真是超乱的，还是重新来吧。把虚拟机恢复到刚刚装好wineHQ，将64bit的python27.dll复制到ida70文件夹和它的plugins里面，然后把ida70复制到opt目录中。写好sh文件，运行。运行过程中wineHQ会自己补充要下载安装的东西。</p>
+<p>这次没说缺python27.dll了，但是说 IDApython: importing site failed. 而且下面空白处出现了 Z:\opt\ida70\plugins\python27.dll: incompatible plugin version, skipped. </p>
+<p>为了解决第一个问题，就要设置环境变量</p>
+<p>用echo $PATH 查看环境变量，用whereis python和which python查看python的路径。好复杂..</p>
+<p>咦，根据上面的提示试了试，直接在ida70文件夹里打开终端，然后输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PYTHONPATH=/usr/lib/python2.7 &amp;&amp; wine ida  //注意这里少了个q，因为我用来运行的是ida.exe而不是idaq.exe</span><br></pre></td></tr></table></figure>
+<p>就能顺利打开了呢… 虽然不知道为什么但是赶快保存一下，好不容易没有error了【擦泪</p>
+<p>然后在ida70里面新建了一个document记录了这个命令，然后删掉了plugins里面的python27.dll, 就没有那个skipped错误了~</p>
+<p>大功告成(*￣︶￣)y </p>
+<p>然后安装IDA的MIPS插件</p>
+<p>首先安装git，用sudo apt install git，然后git clone <a href="https://github.com/devttys0/ida.git。然后将clone的ida/plugins目录下的所有.py后缀的文件复制到IDA" target="_blank" rel="noopener">https://github.com/devttys0/ida.git。然后将clone的ida/plugins目录下的所有.py后缀的文件复制到IDA</a> pro插件目录/opt/ida70/plugins。用的命令是sudo cp -r ‘find ~/ida/plugins -iname <em>.py’ /opt/ida70/plugins， 但是有问题：cp: cannot stat ‘find ~/ida/plugins -iname </em>.py’: No such file or directory</p>
+<p>直接用find ~/ida/plugins -name *.py，倒是能找出来各种.py文件，不知道为什么那样就不行。后来发现 命令是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp -r `find ~/ida/plugins -iname *.py` /opt/ida70/plugins  //`是1前面的那个按键，不是单引号</span><br></pre></td></tr></table></figure>
+<p>然后将script复制到IDA 根目录下面，输入 sudo mkdir /opt/ida70/plugins/scripts 和  sudo cp -r ida/scripts /opt/ida70/scripts。然后运行。但是这里出现了问题，检查了一下发现这两个scripts文件夹权限不合适，于是用sudo chmod 666 scripts来改权限。唔，还是不行。不知道为什么…重启一下试试…？还是不行呢.._(:3 」∠)_</p>
+<p>重新来，恢复到刚装好IDA7.0的时候，装好git然后clone下来，在~/ida/plugins文件夹里打开终端输入python ./install.py /opt/ida70，这下不报错了，但是plugins还是灰色的..呃，拖进去一个cgi文件之后就能有几个plugin看见了，但是似乎没有后面装进去的，而且有很多报错.. </p>
+<p>重新恢复到刚装好IDA7.0，用cgi试了试，再在主机里的IDA试了试，能确定这个IDA7.0是装的没有问题的~继续装plugins</p>
+<p>把ida70文件夹复制到home里面，看看能不能运行哦。咦？能顺利运行！太好了！/opt目录太麻烦了呢..权限总是不对..</p>
+<ol>
+<li>用书上教的方法安装plugins.. 呃，结果跟以前一样，空白处有很多error</li>
+<li>用python ./install.py ~/ida70安装，还是不行， 跟以前一样的问题</li>
+<li>用python ./install.py ~/ida70安装了plugins和module文件里面的两个install.py 还是不行。</li>
+</ol>
+<p>疯了，试了所有能试的办法，还是不能用… 扎心了。或者说有很多跳出来的弹框其实是正确的…? 应该不是，因为plugins那边并没有显示新的插件呢</p>
+<p>   我觉得IDA的插件是装不了了… 而且… 试用了一下，IDA里面的字符也奇奇怪怪的，估计要重新下一个中文字符包之类的… 嗷嗷嗷嗷不！</p>
+<p>我先做点其他的吧…过段时间回来看说不定就会弄了… 当年binwalk和qemu都是这样的呢_(:3 」∠)_</p>
+<p>###安装binwalk</p>
+<p>就像一开始那样安装就可以啦~</p>
+<p>###安装MIPS交叉编译环境</p>
+<p>要不先不装了.. emmm看了一下后面需要这个… 我还是装吧_(:3 」∠)_</p>
+<p>参考网站<a href="https://blog.csdn.net/xiaoguaihai/article/details/8766394" target="_blank" rel="noopener">https://blog.csdn.net/xiaoguaihai/article/details/8766394</a></p>
+<p>先去<a href="https://buildroot.uclibc.org/download.html" target="_blank" rel="noopener">https://buildroot.uclibc.org/download.html</a> 下载一个buildroot，解压</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libncurses5-dev patch</span><br></pre></td></tr></table></figure>
+<p>然后进入buildroot目录，执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make clean</span><br><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
+<p>出现一个蓝色的界面，将target architecture 改成MIPS(little endian)，将target architecture variant改成mips32，将toolchain的kernel headers改成和自己机器一样的版本（在终端里输入uname -r来查看自己的kernel）。之后选择save，保存之后在buildroot文件目录内的终端输入sudo make，等待编译完成（要一个小时…) </p>
+<p>安装好之后，测试一下。</p>
+<p>先写一个helloworld.c文件。首先sudo apt-get install vim, sudo apt-get install build-essential (本来还要装一个gcc呢，不过Ubuntu自带了)，然后终端里输入vim hello.c。在vim页面先按一下i键，变成insert模式，再输入代码。输入完成后按esc回到normal模式，继续输入 :wq 保存并推出。</p>
+<p>然后就进入到编译环节。如果想正常编译，就g++ hello.c -o hello，然后  ./hello 就能看到结果。我们这次想编译成MIPS指令架构可执行的程序，就用 mips-linux-gcc -o hello hello.c -static …</p>
+<p>但是一直没有成功。在buildroot-output-host-usr-bin目录里打开终端，输入 mipsel-linux-gcc –version，说没有这个命令。输入./mipsel-linux-gcc –version  就出来了… 不知道为什么。而且为什么是mipsel不是mips.. </p>
+<p>而且出来的不是 mips-linux-gcc 的version，而是mipsel-linux-gcc.br_real (Buildroot 2018.05.1) 6.4.0的 .. 这到底对不对呀…</p>
+<p>最后用在~目录下使用命令：~/buildroot-2018.05.1/output/host/usr/bin/mipsel-linux-gcc hello.c -o hello.out -static  好像就能编译了… 神奇…</p>
+<p>用qemu-mipsel ./hello.out “xxx“运行，会输出xxx。一开始我没加后面”“部分，就报错说need more arguments。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/buildroot-2018.05.1/output/host/usr/bin/mipsel-linux-gcc hello.c -o hello.out -static</span><br></pre></td></tr></table></figure>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>###运行boa</p>
+<p>这次安装好之后binwalk里面的build文件夹是锁上的，所以我用sudo chmod 666 build 先解开了。</p>
+<p>解压DIR505的时候不知道为什么没有boa, 重新照书上那样下载了一个605L，解开之后就有boa了</p>
+<p>解压之后，在解压的目录内输入 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/605/_605.bin.extracted/squashfs-root-0$ cp $(which qemu-mipsel) ./</span><br></pre></td></tr></table></figure>
+<p>这步还行。成功copy过来了。然而下一步</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chroot ./qemu-mipsel ./bin/boa</span><br></pre></td></tr></table></figure>
+<p>却报错说chroot: cannot change root directory to ‘./qemu-mipsel’: Not a directory … 不知道为什么</p>
+<p>看到这个<a href="http://www.giantbranch.cn/2018/04/16/%E4%B8%80%E6%AC%A1qemu%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95%E8%B7%AF%E7%94%B1%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%AE%B0%E5%BD%95/" target="_blank" rel="noopener">http://www.giantbranch.cn/2018/04/16/%E4%B8%80%E6%AC%A1qemu%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95%E8%B7%AF%E7%94%B1%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%AE%B0%E5%BD%95/</a>  说，是因为缺少依赖库。</p>
+<p>在~$输入 ldd /usr/bin/qemu-mips，ldd是用来查看程序依赖库的。然后将ldd出来的路径复制到解压的文件系统根目录对应的文件夹内。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">lilith@ubuntu:~/605/_605.bin.extracted/squashfs-root-0$ ldd /usr/bin/qemu-mips</span><br><span class="line">	linux-vdso.so.1 =&gt;  (0x00007ffe23b65000)</span><br><span class="line">	libgmodule-2.0.so.0 =&gt; /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0 0x00007f21d8894000)</span><br><span class="line">	libglib-2.0.so.0 =&gt; /lib/x86_64-linux-gnu/libglib-2.0.so.0 (0x00007f21d8583000)</span><br><span class="line">	librt.so.1 =&gt; /lib/x86_64-linux-gnu/librt.so.1 (0x00007f21d837b000)</span><br><span class="line">	libm.so.6 =&gt; /lib/x86_64-linux-gnu/libm.so.6 (0x00007f21d8072000)</span><br><span class="line">	libpthread.so.0 =&gt; /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f21d7e55000)</span><br><span class="line">	libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f21d7a8b000)</span><br><span class="line">	libdl.so.2 =&gt; /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f21d7887000)</span><br><span class="line">	libpcre.so.3 =&gt; /lib/x86_64-linux-gnu/libpcre.so.3 (0x00007f21d7617000)	/lib64/ld-linux-x86-64.so.2 (0x00007f21daf00000)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cp /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0  ./usr/lib/</span><br><span class="line">cp /lib/x86_64-linux-gnu/libglib-2.0.so.0  ./lib/x86_64-linux-gnu</span><br><span class="line">cp /lib/x86_64-linux-gnu/librt.so.1  ./lib/x86_64-linux-gnu</span><br><span class="line">cp /lib/x86_64-linux-gnu/libm.so.6  ./lib/x86_64-linux-gnu</span><br><span class="line">cp /lib/x86_64-linux-gnu/libgcc_s.so.1  ./lib/x86_64-linux-gnu</span><br><span class="line">cp /lib/x86_64-linux-gnu/libpthread.so.0  ./lib/x86_64-linux-gnu</span><br><span class="line">cp /lib/x86_64-linux-gnu/libc.so.6  ./lib/x86_64-linux-gnu</span><br><span class="line">cp /lib/x86_64-linux-gnu/libdl.so.2  ./lib/x86_64-linux-gnu</span><br><span class="line">cp /lib/x86_64-linux-gnu/libpcre.so.3  ./lib/x86_64-linux-gnu</span><br><span class="line">cp /lib64/ld-linux-x86-64.so.2  ./lib64</span><br></pre></td></tr></table></figure>
+<p>注意cp的时候，有的时候不会有对应的文件夹，就没有copy进去，最后就运行不了。所以要先在./usr里面建一个lib，在./内建一个lib64文件夹，然后再复制进去，最后输入 sudo chroot . ./qemu-mips ./bin/boa 就能运行了。</p>
+<p>发现《揭秘》这本书里太多坑了！书里完全没提依赖库的问题，我还以为是虚拟机坏了… 书里写的sudo chroot ./qemu-mips ./bin/boa，比旁的地方少了个. ，这样就完全运行不起来啊！！好坑啊！！</p>
+<p><a href="http://www.netfairy.net/content/uploadfile/201702/3a1f1487776952.pdf" target="_blank" rel="noopener">http://www.netfairy.net/content/uploadfile/201702/3a1f1487776952.pdf</a> 这个pdf也讲到了要装lib的问题，但是说的很不清楚，不知道要把哪个库放在哪里…_(:3 」∠)_</p>
+<h3 id="IDA远程调试"><a href="#IDA远程调试" class="headerlink" title="IDA远程调试"></a>IDA远程调试</h3><p>首先复制windows里面的IDA安装目录/dbgsrv/linux_server到Ubuntu虚拟机下面，打开终端执行  ./linux_server -p 8888，然后就会显示：IDA Linux 32-bit remote debug server(ST) v1.22. Hex-Rays (c) 2004-2017   Listening on 0.0.0.0:0…</p>
+<p>在解压出来的文件夹里面，打开终端执行 sudo chroot . ./qemu-mips -g 8888 ./bin/boa</p>
+<p>把boa文件复制到windows里面，用IDA打开，在main函数的第一行设置一个断点，然后debugger-select debugger，选择remote GDB debugger，然后debugger-process options，hostname填ubuntu虚拟机的ip（ifconfig，ens33里面的inet addr），port就填8888 就可以了</p>
+<p>注意linux_server还有个64，用于64位程序，且不能兼容前者。</p>
+<p>还有ubuntu的64位系统无法运行32位的linux_server，报错为缺少libstdc++.so.6, 用sudo apt-get install lib32stdc++6</p>
+<h3 id="修复boa"><a href="#修复boa" class="headerlink" title="修复boa"></a>修复boa</h3><p>之前运行的时候错误信息为：Initialize AP MIB failed! 于是在IDA里面搜索这个特征字符串。可以用search - 输入字符串来找，也可以打开strings window，然后右击选择filter，输入AP MIB，就会把所有有这个字节的都列出来了。双击之后就能进入代码处，并在此处设置断点。</p>
+<p>这句话后面有句 DATA XREF: websAspInit+E08↑o，表示是数据交叉引用中的偏移量交叉引用引用函数为 websAspInit</p>
+<p>然后，在IDA 的程序里，右击DATA XREF，选择 list cross references to，就能看到引用的地方（或者双击也可以）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">LOAD:0041821C jalr    $t9 ; apmib_init</span><br><span class="line">LOAD:00418220 nop</span><br><span class="line">LOAD:00418224 lw      $gp, 0x38+var_28($sp)</span><br><span class="line">LOAD:00418228 bnez    $v0, loc_418250</span><br><span class="line">LOAD:0041822C nop</span><br><span class="line">LOAD:00418230 la      $a0, (aSsiDnsResolveA+0x10)      # &quot;asp&quot;</span><br><span class="line">LOAD:00418234 la      $t9, _puts</span><br><span class="line">LOAD:00418238 nop</span><br><span class="line">LOAD:0041823C jalr    $t9 ; puts</span><br><span class="line">LOAD:00418240 addiu   $a0, (aInitializeApMi - 0x490000)  # &quot;Initialize AP MIB failed!&quot;</span><br></pre></td></tr></table></figure>
+<p>首先，调用apmib_init函数，然后将返回值和0比较，若为0，则转到Initialize AP MIB failed!，否则就跳过。现在LOAD:00418228 bnez    $v0, loc_418250处下断，发现v0就是0.（ v0 v1保存表达式或函数返回结果）。点击运行，然后在这个断点的时候把双击v0，把它的值改成1，这样就跳过了AP MIB，在ubuntu虚拟机里运行boa的终端显示了 Create chklist file error!  Create chklist file error!</p>
+<p>分析发现apmib_init来自动态链接库apmib.so，用IDA加载分析，找到apmib_init()的代码。分析知道apmib_init()内的代码处理流程对模糊测试没有影响，可以伪造apmib_init()的函数直接返回值1. </p>
+<p>编写新的apmib_init()：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">int apmib_init(void)&#123;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后编译生成动态库apmib-ld.so</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/buildroot-2018.05.1/output/host/usr/bin/mipsel-linux-gcc -Wall -fPIC -shared apmib.c -o apmib-ld.so</span><br></pre></td></tr></table></figure>
+<p>然后将生成的so文件复制到文件系统的根目录下（也就是有 bin, dev, etc, lib等等的那个文件夹）</p>
+<p>####问题2：这是怎么分析发现是apmib.so，如何知道apmib_init()内的代码处理流程对模糊测试没有影响？</p>
+<h4 id="临时：XREF"><a href="#临时：XREF" class="headerlink" title="临时：XREF"></a>临时：XREF</h4><p><a href="https://blog.csdn.net/hgy413/article/details/50594320" target="_blank" rel="noopener">IDA XREF</a></p>
+<p>交叉引用分为 CODE XREF(代码交叉引用)和 DATA XREF(数据交叉引用)。</p>
+<h5 id="代码交叉引用"><a href="#代码交叉引用" class="headerlink" title="代码交叉引用"></a>代码交叉引用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">int read_it; </span><br><span class="line">int write_it; </span><br><span class="line">int ref_it; </span><br><span class="line">void callflow() &#123;&#125; </span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int *p = &amp;ref_it;</span><br><span class="line">    *p = read_it;</span><br><span class="line">    write_it = *p;</span><br><span class="line">    callflow();</span><br><span class="line">    if (read_it == 3)</span><br><span class="line">    &#123;</span><br><span class="line">        write_it = 2;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        write_it = 1;</span><br><span class="line">    &#125;</span><br><span class="line">    callflow();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.text:00401010 ; int __cdecl main(int argc, const char **argv, const char **envp)</span><br><span class="line">.text:00401010 _main           proc near               ; CODE XREF: __tmainCRTStartup+10Ap</span><br><span class="line">.text:00401010</span><br><span class="line">.text:00401010 p               = dword ptr -4</span><br><span class="line">.text:00401010 argc            = dword ptr  8</span><br><span class="line">.text:00401010 argv            = dword ptr  0Ch</span><br><span class="line">.text:00401010 envp            = dword ptr  10h</span><br><span class="line">.text:00401010</span><br><span class="line">.text:00401010                 push    ebp</span><br><span class="line">.text:00401011                 mov     ebp, esp</span><br><span class="line">.text:00401013                 push    ecx</span><br><span class="line">.text:00401014                 mov     [ebp+p], offset int ref_it</span><br><span class="line">.text:0040101B                 mov     eax, [ebp+p]</span><br><span class="line">.text:0040101E                 mov     ecx, int read_it</span><br><span class="line">.text:00401024                 mov     [eax], ecx</span><br><span class="line">.text:00401026                 mov     edx, [ebp+p]</span><br><span class="line">.text:00401029                 mov     eax, [edx]</span><br><span class="line">.text:0040102B                 mov     int write_it, eax</span><br><span class="line">.text:00401030                 ③call    callflow(void)</span><br><span class="line">.text:00401035                 cmp     int read_it, 3</span><br><span class="line">.text:0040103C                 jnz     short loc_40104A</span><br><span class="line">.text:0040103E                 mov     int write_it, 2</span><br><span class="line">.text:00401048                 jmp     short loc_401054</span><br><span class="line">.text:0040104A ; ---------------------------------------------------------------------------</span><br><span class="line">.text:0040104A</span><br><span class="line">.text:0040104A loc_40104A:                             ; CODE XREF: _main+2C↑j</span><br><span class="line">.text:0040104A                 mov     int write_it, 1</span><br><span class="line">.text:00401054</span><br><span class="line">.text:00401054 loc_401054:                             ; CODE XREF: _main+38↑j</span><br><span class="line">.text:00401054                 ③call    callflow(void)</span><br><span class="line">.text:00401059                 xor     eax, eax</span><br><span class="line">.text:0040105B                 mov     esp, ebp</span><br><span class="line">.text:0040105D                 pop     ebp</span><br><span class="line">.text:0040105E                 retn</span><br><span class="line">.text:0040105E _main           endp</span><br><span class="line">.text:0040105E</span><br></pre></td></tr></table></figure>
+<p>表示一条指令将控制权转交给另一条指令，这叫流flow。流分为普通流，调用流，跳转流。普通流就是默认的一条条往下执行，调用流是↓p(procedure) ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.text:00401000 void __cdecl callflow(void) proc near   ; ①CODE XREF: _main+20↓p</span><br><span class="line">.text:00401000                                         ; ①_main:loc_401054↓p</span><br><span class="line">.text:00401000                 push    ebp</span><br><span class="line">.text:00401001                 mov     ebp, esp</span><br><span class="line">.text:00401003                 pop     ebp</span><br><span class="line">.text:00401004                 retn</span><br><span class="line">.text:00401004 void __cdecl callflow(void) endp</span><br><span class="line"></span><br><span class="line">.text:00401030                 ③call    callflow(void)</span><br><span class="line">.text:00401054                 ③call    callflow(void)</span><br></pre></td></tr></table></figure>
+<p>①显示了两次，表示这个函数被调用了2次</p>
+<p>跳转流，每个无条件分支指令和条件分支指令将分配到一个跳转流</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.text:00401048                 jmp     short loc_401054</span><br><span class="line">.text:0040104A ; ---------------------------------------------------------------------------</span><br><span class="line">.text:0040104A</span><br></pre></td></tr></table></figure>
+<p>虚线表示相邻的两条指令之间并不存在普通流（也就是00401048后没有跟着顺序执行的指令） </p>
+<p>#####数据交叉引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.data:00403378 int ref_it      db    ? ;               ; DATA XREF: _main+4↑o</span><br><span class="line">.data:00403379                 db    ? ;</span><br><span class="line">.data:0040337A                 db    ? ;</span><br><span class="line">.data:0040337B                 db    ? ;</span><br><span class="line">.data:0040337C int write_it    dd ?                    ; DATA XREF: _main+1B↑w</span><br><span class="line">.data:0040337C                                         ; _main+2E↑w ...</span><br><span class="line">.data:00403380 int read_it     dd ?                    ; DATA XREF: _main+E↑r</span><br><span class="line">.data:00403380                                         ; _main+25↑r</span><br></pre></td></tr></table></figure>
+<p>用于跟踪二进制文件访问数据的方式。与虚拟地址的字节有关，与栈变量无关。分为三种，读取交叉引用，写入交叉引用，偏移量交叉引用。</p>
+<p>读取交叉引用，read cross reference, ↑r , read_it在_main+E处、_main+25被读取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.text:0040101E                 mov     ecx, int read_it</span><br><span class="line">.text:00401035                 cmp     int read_it, 3</span><br></pre></td></tr></table></figure>
+<p>写入交叉引用，指出了修改变量内容的位置，↑w ，write_it在_main+1B、_main+2E处被写入 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.text:0040102B                 mov     int write_it, eax</span><br><span class="line">.text:0040103E                 mov     int write_it, 2</span><br></pre></td></tr></table></figure>
+<p>偏移量交叉引用，表示引用的是某个位置的地址（而不是内容），后缀<code>↑o</code>（看做是Offset）。 ref_it在_main+4处被引用 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.text:00401014                 mov     [ebp+p], offset int ref_it</span><br></pre></td></tr></table></figure>
+<h2 id="第12章：-D-Link-DIR-505漏洞分析"><a href="#第12章：-D-Link-DIR-505漏洞分析" class="headerlink" title="第12章： D-Link DIR-505漏洞分析"></a>第12章： D-Link DIR-505漏洞分析</h2>
           
         
       
@@ -520,7 +919,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">sudo umount /mnt/raspbian</span><br></pre></td></tr></table></figure>
 <p>现在可以使用了（如果终端是在qemu_vms文件夹里，就不需要输入kernel和img文件前面的~/qemu_vms)：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm -kernel ~/qemu_vms/&lt;your-kernel-qemu&gt; -cpu arm1176 -m 256 -M versatilepb -serial stdio -append &quot;root=/dev/sda2 rootfstype=ext4 rw&quot; -hda ~/qemu_vms/&lt;your-jessie-image.img&gt; -redir tcp:5022::22 -no-reboot</span><br></pre></td></tr></table></figure>
-<p>​    </p>
+<p>​ 这里用的是20171129raspbian.img和kernel-qemu-4.4.34-</p>
 <h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>image文件太小了，所以需要扩展一下~</p>
 <p>先进入qemu_vms的终端：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp &lt;your-raspbian-jessie&gt;.img rasbian.img</span><br><span class="line">qemu-img resize raspbian.img +6G</span><br></pre></td></tr></table></figure>
@@ -1778,7 +2177,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1789,7 +2188,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1800,7 +2199,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1874,7 +2273,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
